@@ -12,7 +12,7 @@ namespace npoi.Model
 
     }
 
-    class NumacSystem
+    public class NumacSystem
     {
         public Guid SystemId { get; set; }
         public string Name { get; set; }
@@ -21,18 +21,19 @@ namespace npoi.Model
         public ICollection<Chassis> Chassis { get; set; }
     }
 
-    class Chassis
+    public class Chassis
     {
         public Guid ChassisId { get; set; }
         public string ChassisName { get; set; }
        
         public Guid SystemId { get; set; }
+        public NumacSystem NumacSystem { get; set; }
         public ICollection<ModuleBoard> ModuleBoards { get; set; }
 
         
     }
 
-    class ModuleBoard
+    public class ModuleBoard
     {
         public Guid ModuleBoardId { get; set; }
         public string ModuleBoardName { get; set; }

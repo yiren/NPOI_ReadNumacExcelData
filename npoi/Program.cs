@@ -110,6 +110,11 @@ namespace npoi
                 }
 
             }
+            NumacDbContext db=new NumacDbContext();
+            db.NumacSystems.AddRange(systems);
+            db.ModuleBoards.AddRange(boards);
+            db.Chassis.AddRange(chasses);
+            db.SaveChanges();
             Console.WriteLine(boards.Count);
             Console.ReadLine();
         }
