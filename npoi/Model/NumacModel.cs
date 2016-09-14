@@ -25,7 +25,7 @@ namespace npoi.Model
     {
         public Guid ChassisId { get; set; }
         public string ChassisName { get; set; }
-
+       
         public Guid SystemId { get; set; }
         public ICollection<ModuleBoard> ModuleBoards { get; set; }
 

@@ -14,5 +14,9 @@ namespace npoi.Model
         {
             
         }
+
+        public DbSet<NumacSystem> NumacSystems { get; set; }
+        public DbSet<Chassis> Chassis { get; set; }
+        public DbSet<ModuleBoard> ModuleBoards { get; set; }
     }
 }
