@@ -111,14 +111,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DRSDataReader.cs" />
+    <Compile Include="Model\DrsDbContext.cs" />
+    <Compile Include="Model\DrsModel.cs" />
     <Compile Include="Model\NumacDbContext.cs" />
     <Compile Include="Model\NumacModel.cs" />
     <Compile Include="Model\NumacSheetModel.cs" />
+    <Compile Include="NumacDataReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DRS SCM Data.xlsx" />
     <None Include="NUMAC_EPROM_Info.xlsx" />
     <None Include="packages.config" />
   </ItemGroup>
