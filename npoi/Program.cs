@@ -14,7 +14,9 @@ namespace npoi
         static void Main(string[] args)
         {
             
-           
+            var drsDataReader=new DRSDataReader();
+            drsDataReader.ReadDataFromExcel();
+            
             Console.ReadLine();
         }
     }

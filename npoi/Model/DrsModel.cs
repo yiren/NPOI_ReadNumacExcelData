@@ -9,7 +9,7 @@ namespace LungmenSoftware.Models.DRS
     public class DrsModel
     {
         public string SystemName { get; set; }
-        public string DrsPanelName { get; set; }
+        public string DRSPanelName { get; set; }
         public string Description { get; set; }
         public string FIDDiagramNo { get; set; }
         public string ModuleType { get; set; }
@@ -32,7 +32,7 @@ namespace LungmenSoftware.Models.DRS
     public class DrsPanel
     {
         public Guid DrsPanelId { get; set; }
-        public string DrsPanelName { get; set; }
+        public string DRSPanelName { get; set; }
 
         public Guid SystemId { get; set; }
         public DrsSystem DrsSystem { get; set; }
@@ -48,7 +48,7 @@ namespace LungmenSoftware.Models.DRS
         public string Description { get; set; }
 
         
-        public string FidDiagramNo { get; set; }
+        public string FIDDiagramNo { get; set; }
 
        
         public string ModuleType { get; set; }
@@ -61,9 +61,9 @@ namespace LungmenSoftware.Models.DRS
         public string Checksum { get; set; }
 
         
-        public string FidRev { get; set; }
+        public string FIDRev { get; set; }
 
-        public string EpromRev { get; set; }
+        public string EPROMRev { get; set; }
 
         public Guid DrsPanelId { get; set; }
        

@@ -34,7 +34,7 @@ namespace LungmenSoftware.Models.DRS
             {
                 HasKey(s => s.SystemId);
                 Property(s => s.SystemName).HasMaxLength(20);
-                HasMany(s => s.DrsPanel).WithRequired(p => p.DrsSystem).HasForeignKey(s => s.DrsPanelId);
+                HasMany(s => s.DrsPanel).WithRequired(p => p.DrsSystem).HasForeignKey(s => s.SystemId);
             }
         }
 
@@ -43,8 +43,8 @@ namespace LungmenSoftware.Models.DRS
             public EntityTypeConfigurationDrsPanel()
             {
                 HasKey(p => p.DrsPanelId);
-                Property(p => p.DrsPanelName).HasMaxLength(50);
-                HasMany(p => p.FIDs).WithRequired(f => f.DrsPanel).HasForeignKey(p => p.FidId);
+                Property(p => p.DRSPanelName).HasMaxLength(50);
+                HasMany(p => p.FIDs).WithRequired(f => f.DrsPanel).HasForeignKey(p => p.DrsPanelId);
             }
         }
 
@@ -53,10 +53,11 @@ namespace LungmenSoftware.Models.DRS
             public EntityTypeConfigurationFID()
             {
                 HasKey(f => f.FidId);
-                Property(f => f.FidDiagramNo).HasMaxLength(50);
+                Property(f => f.FIDDiagramNo).HasMaxLength(50);
                 Property(f => f.ModuleType).HasMaxLength(50);
                 Property(f => f.EPROMSpecNo).HasMaxLength(50);
-                Property(f => f.Rev).HasMaxLength(20);
+                Property(f => f.EPROMRev).HasMaxLength(20);
+                Property(f => f.FIDRev).HasMaxLength(20);
                 Property(f => f.Checksum).HasMaxLength(50);
             }
         }
