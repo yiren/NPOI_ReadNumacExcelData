@@ -13,7 +13,7 @@ namespace npoi
         public void ReadDataFromExcel()
         {
             var mapper = new Mapper("D:\\GitRepository\\NPOI_ReadNumacExcelData\\npoi\\NUMAC_EPROM_Info.xlsx");
-            var excelData = mapper.Take<NumacSheetModel>("Table 2").ToList();
+            var excelData = mapper.Take<NumacSheetModel>("fidlist").ToList();
 
             List<NumacSystem> systems = new List<NumacSystem>();
             List<Chassis> chasses = new List<Chassis>();

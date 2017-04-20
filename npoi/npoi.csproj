@@ -124,6 +124,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="DRS SCM Data.xlsx" />
+    <None Include="DRS SCM Data_Updated.xlsx" />
     <None Include="NUMAC_EPROM_Info.xlsx" />
     <None Include="packages.config" />
   </ItemGroup>
