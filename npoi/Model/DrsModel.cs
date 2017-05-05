@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Npoi.Mapper.Attributes;
 
 namespace LungmenSoftware.Models.DRS
 {
@@ -43,11 +44,13 @@ namespace LungmenSoftware.Models.DRS
 
     public class FID
     {
+        [Ignore]
         public Guid FidId { get; set; }
 
+        [Column("描述")]
         public string Description { get; set; }
 
-        
+        [Column("FID圖號")]
         public string FIDDiagramNo { get; set; }
 
        
@@ -64,7 +67,7 @@ namespace LungmenSoftware.Models.DRS
         public string FIDRev { get; set; }
 
         public string EPROMRev { get; set; }
-
+        [Ignore]
         public Guid DrsPanelId { get; set; }
        
         public DrsPanel DrsPanel { get; set; }

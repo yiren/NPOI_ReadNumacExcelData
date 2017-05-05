@@ -15,8 +15,9 @@ namespace npoi
         {
             
             var drsDataReader=new DRSDataReader();
-            drsDataReader.ReadDataFromExcel();
-            
+            //drsDataReader.ReadDataFromExcel();
+            drsDataReader.SaveDbDataToExcel();
+            //drsDataReader.UseClosedXMLToExportExcel();
             Console.ReadLine();
         }
     }

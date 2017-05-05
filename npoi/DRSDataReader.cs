@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Packaging;
 using LungmenSoftware.Models.DRS;
 using Npoi.Mapper;
 using Spire.Pdf.General.Render.Decode.Jpeg2000;
@@ -83,7 +87,49 @@ namespace npoi
             Console.WriteLine(db.SaveChanges());
             
             
-        }      
+        }
+
+        public void SaveDbDataToExcel()
+        {
+            var mapper= new Mapper();
+            DrsDbContext db = new DrsDbContext();
+            var data = db.FIDs.ToList();
+            //mapper.Save("D:\\GitRepository\\NPOI_ReadNumacExcelData\\npoi\\text.xlsx", data,"DRS FID");
+            string path = @"D:\\GitRepository\\NPOI_ReadNumacExcelData\\npoi\\test.xlsx";
+            using (FileStream fs = new FileStream(path, FileMode.Create))
+            {
+                mapper.Save(fs, data, "DRS FID");
+            }
+            //using (MemoryStream ms=new MemoryStream())
+            //{
+            //    mapper.Save(ms,data);
+            //    Console.WriteLine("xlsx File Saved!");
+
+            //}
+
+        }
+
+        public void UseClosedXMLToExportExcel()
+        {
+            DrsDbContext db = new DrsDbContext();
+            string path = @"D:\\GitRepository\\NPOI_ReadNumacExcelData\\npoi\\test.xlsx";
+            var data = db.FIDs.ToList();
+            var wb =new XLWorkbook();
+            var ws = wb.Worksheets.Add("Test");
+            
+            
+            ws.Cell(1, 1).Value = data.AsEnumerable();
+            ws.Columns().AdjustToContents();
+            
+            using (FileStream fs = new FileStream(path, FileMode.Create))
+            {
+                wb.SaveAs(fs);
+            }
+            Console.WriteLine("xlsx File Saved!");
+
+        }
+
+
         
         }
     }
