@@ -107,10 +107,19 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TypeLite, Version=1.8.2.0, Culture=neutral, PublicKeyToken=8cd4b9c9ac23d744, processorArchitecture=MSIL">
+      <HintPath>..\packages\TypeLite.1.8.4\lib\net4\TypeLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TypeLite.Net4, Version=1.8.2.0, Culture=neutral, PublicKeyToken=8cd4b9c9ac23d744, processorArchitecture=MSIL">
+      <HintPath>..\packages\TypeLite.1.8.4\lib\net4\TypeLite.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DRSDataReader.cs" />
+    <Compile Include="ExcelReader\DRSDataReader.cs" />
+    <Compile Include="ExcelReader\SeoDataReader.cs" />
     <Compile Include="Model\DrsDbContext.cs" />
     <Compile Include="Model\DrsModel.cs" />
     <Compile Include="Model\NumacDbContext.cs" />
@@ -119,7 +128,11 @@
     <Compile Include="Model\SEO\SeoDbContext.cs" />
     <Compile Include="Model\SEO\SeoDcr.cs" />
     <Compile Include="Model\SEO\SeoMmr.cs" />
-    <Compile Include="NumacDataReader.cs" />
+    <Compile Include="ExcelReader\NumacDataReader.cs" />
+    <Compile Include="Model\Vote\VoteEvent.cs" />
+    <Compile Include="Model\Vote\VoteOption.cs" />
+    <Compile Include="Model\Vote\VoteRecord.cs" />
+    <Compile Include="Model\Vote\VoteResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -132,6 +145,26 @@
     <None Include="MMR.xlsx" />
     <None Include="NUMAC_EPROM_Info.xlsx" />
     <None Include="packages.config" />
+    <None Include="Scripts\Manager.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\TypeLite.Net4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TypeLite.Net4.d.ts</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Enums.ts">
+      <DependentUpon>TypeLite.Net4.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\TypeLite.Net4.d.ts">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeLite.Net4.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
